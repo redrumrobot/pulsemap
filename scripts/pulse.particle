@@ -1,0 +1,677 @@
+pulse/meteorite_inpact
+{
+  ejector
+  {
+    particle
+    {
+      shader sync gfx/sprites/spark.tga
+      radius 0 50 0
+      alpha  0 1 0
+      lifeTime 200
+      overdrawProtection
+    }
+
+    particle
+    {
+      shader sync gfx/sprites/spark.tga
+      radius 0 10~10 10
+      alpha  0 1 -
+      lifeTime 1000
+      overdrawProtection
+    }
+    count 1
+    delay 0
+    period 0 - ~0%
+  }
+  
+  ejector
+  {
+    particle
+    {
+      shader sync gfx/marks/bullet_mrk.tga
+      radius 0 10 5
+//      alpha  0 1 0
+      lifeTime 2000
+      overdrawProtection
+    }
+    count 1
+    delay 500
+    period 0 - ~0%
+  }
+
+  ejector
+  {
+    particle
+    {
+      shader sync gfx/sprites/smoke
+
+      accelerationType      static
+      accelerationDir       linear
+      accelerationMagnitude 200
+      acceleration          0 0 1 0
+
+      radius 0 5 25
+      alpha  0 0.5 0
+      bounce 0
+
+      lifeTime 800
+      overdrawProtection
+    }
+
+    count 1
+    delay 100
+    period 0 - ~0%
+  }
+}
+
+pulse/meteorite_system
+{
+	ejector
+	{
+		particle
+		{
+		// a 512 cube around the entity
+	        displacement -512 -512 -512 ~1024
+
+		velocityType 		static
+		velocityDir 		linear
+		velocity 		0 -1 -0.25 ~5
+		velocityMagnitude 	2000~100
+
+		bounce		cull
+		radius		0 0 -
+		alpha		0 0 -
+		lifeTime 10000
+		overdrawProtection
+		cullOnStartSolid
+		
+		childTrailSystem pulse/meteorite_trail
+		onDeathSystem pulse/meteorite_inpact
+		}
+	delay 0
+	count infinite
+	period 500 - ~100%
+	}
+}
+
+pulse/meteorite_system_noimpact
+{
+	ejector
+	{
+		particle
+		{
+		// a 512 cube around the entity
+	        displacement -512 -512 -512 ~1024
+
+		velocityType 		static
+		velocityDir 		linear
+		velocity 		0 -1 0 ~5
+		velocityMagnitude 	2000~100
+
+		bounce		cull
+		radius		0 0 -
+		alpha		0 0 -
+		lifeTime 10000
+		overdrawProtection
+		cullOnStartSolid
+		
+		childTrailSystem pulse/meteorite_trail
+//		onDeathSystem pulse/meteorite_inpact
+		}
+	delay 0
+	count infinite
+	period 500 - ~100%
+	}
+}
+
+
+
+pulse/drip_system
+{
+	ejector
+	{
+		particle
+		{
+		accelerationType	static
+		accelerationDir		linear
+		acceleration 		0 0 -1 0
+		accelerationMagnitude 	700
+
+		bounce		0.1
+		bounceSound 1 sound/pulse/water_drip1.wav 
+
+		radius		0 0 -
+		lifeTime 3000
+		overdrawProtection
+		cullOnStartSolid
+		childTrailSystem pulse/drip_trail
+		}
+	delay 0
+	count infinite
+	period 1000 - 0
+	}
+}
+
+
+
+// from Niveus map (modified)
+pulse/sparkerNorth
+{
+	ejector
+	{
+		particle
+		{
+		shader sync textures/pulse/spark_01_s
+
+		displacement 0 0 0 ~3
+
+		velocityType 		static
+		velocityDir 		linear
+		velocity 		0 1 .25 ~50
+		velocityMagnitude 	100
+
+		accelerationType	static
+		accelerationDir		linear
+		acceleration 		0 0 -1 ~25
+		accelerationMagnitude 	300
+
+		bounce		0
+		radius		0 2 1
+		alpha		0 .5 .0
+		rotation	0 0 ~360
+
+		lifeTime 300
+
+		overdrawProtection
+		}
+		particle
+		{
+		shader sync textures/pulse/spark_01_s
+
+		displacement 0 0 0 ~5
+
+		velocityType 		static
+		velocityDir 		linear
+		velocity 		0 1 .25 ~50
+		velocityMagnitude 	100
+
+		accelerationType	static
+		accelerationDir		linear
+		acceleration 		0 0 -1 ~25
+		accelerationMagnitude 	300
+
+		bounce		0
+		radius		0 2 1
+		alpha		0 .5 .0
+		rotation	0 0 ~360
+
+		lifeTime 600
+
+		overdrawProtection
+		}
+		particle
+		{
+		shader sync textures/pulse/spark_01_s
+
+		displacement 0 0 0 ~5
+
+		velocityType 		static
+		velocityDir 		linear
+		velocity 		0 1 .25 ~50
+		velocityMagnitude 	100
+
+		accelerationType	static
+		accelerationDir		linear
+		acceleration 		0 0 -1 ~25
+		accelerationMagnitude 	300
+
+		bounce		0
+		radius		0 2 1
+		alpha		0 .5 .0
+		rotation	0 0 ~360
+
+		lifeTime 400
+
+		overdrawProtection
+		}
+		particle
+		{
+		shader sync textures/pulse/spark_01_s
+
+		displacement 0 0 0 ~5
+
+		velocityType 		static
+		velocityDir 		linear
+		velocity 		0 1 .25 ~50
+		velocityMagnitude 	100
+
+		accelerationType	static
+		accelerationDir		linear
+		acceleration 		0 0 -1 ~25
+		accelerationMagnitude 	300
+
+		bounce		0
+		radius		0 2 1
+		alpha		0 .5 .0
+		rotation	0 0 ~360
+
+		lifeTime 500
+
+		overdrawProtection
+		}
+	count infinite
+	delay 0
+	period 500 - ~100%
+	}
+}
+
+// from Niveus map
+pulse/sparkerDown
+{
+	ejector
+	{
+		particle
+		{
+		shader sync textures/pulse/spark_02_s
+
+		displacement 0 0 0 ~3
+
+		velocityType 		static
+		velocityDir 		linear
+		velocity 			0 0 -1 ~150
+		velocityMagnitude 	100
+
+		accelerationType		static
+		accelerationDir		linear
+		acceleration 		0 0 -1 ~25
+		accelerationMagnitude 	300
+
+		bounce		0
+		radius		0 1 1
+		alpha			0 .5 .0
+		rotation		0 0 ~360
+
+		lifeTime 300
+
+		overdrawProtection
+		}
+		particle
+		{
+		shader sync textures/pulse/spark_02_s
+
+		displacement 0 0 0 ~5
+
+		velocityType 		static
+		velocityDir 		linear
+		velocity 			0 0 -1 ~150
+		velocityMagnitude 	100
+
+		accelerationType		static
+		accelerationDir		linear
+		acceleration 		0 0 -1 ~25
+		accelerationMagnitude 	300
+
+		bounce		0
+		radius		0 1 1
+		alpha			0 .5 .0
+		rotation		0 0 ~360
+
+		lifeTime 600
+
+		overdrawProtection
+		}
+		particle
+		{
+		shader sync textures/pulse/spark_02_s
+
+		displacement 0 0 0 ~5
+
+		velocityType 		static
+		velocityDir 		linear
+		velocity 			0 0 -1 ~150
+		velocityMagnitude 	100
+
+		accelerationType		static
+		accelerationDir		linear
+		acceleration 		0 0 -1 ~25
+		accelerationMagnitude 	300
+
+		bounce		0
+		radius		0 1 1
+		alpha			0 .5 .0
+		rotation		0 0 ~360
+
+		lifeTime 400
+
+		overdrawProtection
+		}
+		particle
+		{
+		shader sync textures/pulse/spark_02_s
+
+		displacement 0 0 0 ~5
+
+		velocityType 		static
+		velocityDir 		linear
+		velocity 			0 0 -1 ~150
+		velocityMagnitude 	100
+
+		accelerationType		static
+		accelerationDir		linear
+		acceleration 		0 0 -1 ~25
+		accelerationMagnitude 	300
+
+		bounce		0
+		radius		0 1 1
+		alpha			0 .5 .0
+		rotation		0 0 ~360
+
+		lifeTime 500
+
+		overdrawProtection
+		}
+	count infinite
+	delay 0
+	period 1500 - ~100%
+	}
+}
+
+// ------------------------
+
+pulse/steam1
+{
+	ejector
+	{
+		particle
+		{
+		shader sync textures/arachnid2/mist_s
+		displacement 0 0 0 0
+
+		velocityType		static
+	
+		velocityDir		linear
+	
+		velocityMagnitude	125
+		velocity		3 0 0 ~5
+
+		accelerationType	static
+		accelerationDir		linear
+		acceleration		0 0 10 ~5
+		accelerationMagnitude	50
+
+
+		radius		0 45 125
+		alpha		250 .5 0
+		rotation	0 ~360 ~360
+		bounce		0.0
+
+		lifeTime 2000
+		}
+	count infinite
+	delay 0
+	period 50 - ~0%
+	}
+}
+
+pulse/steam2
+{
+	ejector
+	{
+		particle
+		{
+		shader sync textures/arachnid2/mist_s
+		displacement 0 0 0 0
+
+		velocityType		static
+	
+		velocityDir		linear
+	
+		velocityMagnitude	125
+		velocity		-.1 .05 -1 ~10
+
+		accelerationType	static
+		accelerationDir		linear
+		acceleration		0 0 10 ~5
+		accelerationMagnitude	50
+
+
+		radius		0 5 25
+		alpha		250 .5 0
+		rotation	0 ~360 ~360
+		bounce		0.0
+
+		lifeTime 2000
+		}
+	count infinite
+	delay 0
+	period 25 - ~0%
+	}
+}
+
+
+
+pulse/spark1
+{
+	ejector
+	{
+		particle
+		{
+	      shader sync gfx/sprites/spark.tga
+
+	      displacement 0 0 0 ~2.0
+
+		velocityType 		static
+		velocityDir 		linear
+		velocity 		      0 -1 0 ~25
+		velocityMagnitude 	150
+
+		accelerationType	      static
+		accelerationDir		linear
+		acceleration 		0 0 -1 ~25
+		accelerationMagnitude 	600
+
+		bounce		.3
+		radius		75 3 4
+		alpha		0 .5 .0
+		rotation	0 0 ~360
+
+		lifeTime 2500
+
+		overdrawProtection
+		}
+
+
+		particle
+		{
+	      shader sync gfx/sprites/spark.tga
+
+	      displacement 0 0 0 ~2.0
+
+		velocityType 		static
+		velocityDir 		linear
+		velocity 		      0 -1 0 ~65
+		velocityMagnitude 	75
+
+		accelerationType	static
+		accelerationDir		linear
+		acceleration 		0 0 -1 ~25
+		accelerationMagnitude 	300
+
+		bounce		.3
+		radius		75 3 4
+		alpha		0 .5 .0
+		rotation	0 0 ~360
+
+		lifeTime 2500
+
+		overdrawProtection
+		}
+
+	delay 0
+	count infinite
+	period 300 - ~100%
+	}
+}
+
+pulse/spark2
+{
+	ejector
+	{
+		particle
+		{
+	      shader sync gfx/sprites/spark.tga
+
+	      displacement 0 0 0 ~2.0
+
+		velocityType 		static
+		velocityDir 		linear
+		velocity 		      0 0 -1 ~25
+		velocityMagnitude 	150
+
+		accelerationType	      static
+		accelerationDir		linear
+		acceleration 		0 0 -1 ~25
+		accelerationMagnitude 	600
+
+		bounce		.3
+		radius		75 3 4
+		alpha		0 .5 .0
+		rotation	0 0 ~360
+
+		lifeTime 2500
+
+		overdrawProtection
+		}
+
+
+		particle
+		{
+	      shader sync gfx/sprites/spark.tga
+
+	      displacement 0 0 0 ~2.0
+
+		velocityType 		static
+		velocityDir 		linear
+		velocity 		      0 0 -1 ~65
+		velocityMagnitude 	75
+
+		accelerationType	static
+		accelerationDir		linear
+		acceleration 		0 0 -1 ~25
+		accelerationMagnitude 	300
+
+		bounce		.3
+		radius		75 3 4
+		alpha		0 .5 .0
+		rotation	0 0 ~360
+
+		lifeTime 2500
+
+		overdrawProtection
+		}
+
+	delay 0
+	count infinite
+	period 300 - ~100%
+	}
+}
+
+// by jex, edited by Godmil
+pulse/lghtspark
+{
+  ejector
+  {
+    particle
+    {
+      shader sync gfx/sprites/spark.tga
+
+      displacement 0 0 0 ~2.0
+
+      velocityType 		static
+      velocityDir 		linear
+      velocity 		      1 0 0 ~25
+      velocityMagnitude 	100~50
+
+      accelerationType	      static
+      accelerationDir		linear
+      acceleration 		0 0 -1 ~25
+      accelerationMagnitude 	600
+
+      bounce		.3
+      radius		75 3 4
+      alpha		0 .5 .0
+      rotation	0 0 ~360
+
+      lifeTime 2500
+
+      overdrawProtection
+    }
+
+
+    particle
+    {
+      shader sync gfx/sprites/spark.tga
+
+      displacement 0 0 0 ~2.0
+
+      velocityType 		static
+      velocityDir 		linear
+      velocity 		      1 0 0 ~65
+      velocityMagnitude 	100~50
+
+      accelerationType	static
+      accelerationDir		linear
+      acceleration 		0 0 -1 ~25
+      accelerationMagnitude 	300
+
+      bounce		.3
+      radius		75 3 4
+      alpha		0 .5 .0
+      rotation	0 0 ~360
+
+      lifeTime 2500
+
+      overdrawProtection
+    }
+
+    delay 0
+    count infinite
+    period 700 - ~100%
+  }
+}
+
+// steam by jex - edited by godmil, water by godmil :)
+pulse/steamnrth
+{
+  ejector
+  {
+    particle
+    {
+      shader sync textures/karith/mist_s
+      displacement 0 0 0 0
+
+      velocityType		static
+      velocityDir		linear
+      velocityMagnitude	150
+      velocity		0 1 0 ~20
+
+      accelerationType	static
+      accelerationDir		linear
+      acceleration		0 0 1 ~5
+      accelerationMagnitude	25
+
+      radius		0 5 50
+      alpha		250 .5 0
+      rotation	0 ~360 ~360
+      bounce		0.0
+
+      lifeTime 1000
+    }
+
+    count infinite
+    delay 0
+    period 45 - ~0%
+  }
+}
+
+
