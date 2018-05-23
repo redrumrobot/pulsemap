@@ -126,34 +126,6 @@ pulse/meteorite_system_noimpact
 
 
 
-pulse/drip_system
-{
-	ejector
-	{
-		particle
-		{
-		accelerationType	static
-		accelerationDir		linear
-		acceleration 		0 0 -1 0
-		accelerationMagnitude 	700
-
-		bounce		0.1
-		bounceSound 1 sound/pulse/water_drip1.wav 
-
-		radius		0 0 -
-		lifeTime 3000
-		overdrawProtection
-		cullOnStartSolid
-		childTrailSystem pulse/drip_trail
-		}
-	delay 0
-	count infinite
-	period 1000 - 0
-	}
-}
-
-
-
 // from Niveus map (modified)
 pulse/sparkerNorth
 {
